@@ -3,20 +3,22 @@
 <MudContainer Class="lf-container">
     <MudCard Class="contact-card">
         <MudCardHeader>
+            <MudSpacer/>
             <MudText>Kontakt</MudText>
+            <MudSpacer/>
         </MudCardHeader>
         <MudCardContent>
-            <MudTextField @bind-Value="email" Label="Email" Variant="Variant.Text" Adornment="@Adornment.Start" AdornmentIcon="@Icons.Filled.Email" AdornmentColor="Color.Warning" Class="contact-textfield"></MudTextField>
-            <MudTextField @bind-Value="subject" Label="Předmět" Variant="Variant.Text" Adornment="@Adornment.Start" AdornmentIcon="@Icons.Filled.Subject" AdornmentColor="Color.Warning" Class="contact-textfield"></MudTextField>
+            <MudTextField @bind-Value="email" Label="Email" Variant="Variant.Text" Adornment="@Adornment.Start" AdornmentIcon="@Icons.Filled.Email" AdornmentColor="Color.Primary" Class="contact-textfield"></MudTextField>
+            <MudTextField @bind-Value="subject" Label="Předmět" Variant="Variant.Text" Adornment="@Adornment.Start" AdornmentIcon="@Icons.Filled.Subject" AdornmentColor="Color.Primary" Class="contact-textfield" ></MudTextField>
             <MudSelect T="MessageReason" Label="Důvod zprávy" AnchorOrigin="Origin.BottomCenter" Class="contact-textfield">
                 <MudSelectItem T="MessageReason" Value="@MessageReason.CustomDevelopment" />
                 <MudSelectItem T="MessageReason" Value="@MessageReason.Support" />
                 <MudSelectItem T="MessageReason" Value="@MessageReason.Analysis" />
             </MudSelect>
-            <MudTextField T="string" Label="Vaše zpráva" Variant="Variant.Text" Text="@text" Lines="5" Adornment="@Adornment.Start" AdornmentIcon="@Icons.Filled.TextFields" AdornmentColor="Color.Warning" Class="contact-textfield" />
+            <MudTextField T="string" Label="Vaše zpráva" Variant="Variant.Text" Text="@text" Lines="5" Adornment="@Adornment.Start" AdornmentIcon="@Icons.Filled.TextFields" AdornmentColor="Color.Primary" Class="contact-textfield" />
         </MudCardContent>
         <MudCardActions Class="contact-card-actions">
-            <MudButton Class="contact-btn" Size="Size.Large" FullWidth>Odeslat <MudIcon Icon="@Icons.Filled.NavigateNext"/></MudButton>
+            <MudButton Class="ma-5" Variant="Variant.Outlined" Color="Color.Primary" Size="Size.Large" FullWidth>Odeslat <MudIcon Icon="@Icons.Filled.NavigateNext"/></MudButton>
         </MudCardActions>
 
     </MudCard>
@@ -45,19 +47,6 @@
         width: 100%;
     }
 
-    .contact-btn {
-        margin: 20px;
-        color: #b9ad00;
-        border-style: solid;
-        border-width: 1px;
-    }
-
-        .contact-btn:hover {
-            margin: 20px;
-            transition: 0.3s;
-            background-color: #b9ad00;
-            color: #191a19;
-        }
 </style>
 
 @code {

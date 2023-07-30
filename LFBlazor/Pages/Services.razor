@@ -19,7 +19,7 @@
                     </MudCardContent>
                     <MudCardActions Class="service-card-actions">
                         <MudSpacer/>
-                        <MudIconButton Icon="@Icons.Filled.NavigateNext" Class="service-btn" Size="Size.Large" Href="@item.Href" />
+                        <MudIconButton Variant="Variant.Outlined" Color="Color.Primary" Icon="@Icons.Filled.NavigateNext" Class="service-btn" Size="Size.Large" Href="@item.Href" />
                         <MudSpacer />
                     </MudCardActions>
                 </MudCard>
@@ -34,7 +34,7 @@
         margin: 25px;
         background-color: #282928;
         border-radius: 15px;
-        color: #b9ad00;
+        color: #FBC02D;
         width: 320px;
         height: 400px;
         position: relative;
@@ -53,27 +53,18 @@
     .service-subcaption {
         font-size: 25px;
         margin-bottom: 10px;
-        color: #b9ad00;
+        color: #FDD835;
     }
 
     .service-caption {
         font-size: 35px;
-        color: #fff783;
+        color: #FDD835;
     }
 
     .service-btn {
         margin: 10px;
-        color: #b9ad00;
-        border-style: solid;
-        border-width: 1px;
+        border-radius: 50px !important;
     }
-
-        .service-btn:hover {
-            margin: 10px;
-            transition: 0.3s;
-            background-color: #b9ad00;
-            color: #191a19;
-        }
 </style>
 
 @code {
@@ -88,9 +79,9 @@
 
     List<ServiceModel> serviceModels = new List<ServiceModel>
     {
-        new ServiceModel { Caption="Vývoj na zakázku", Text="Vývoj zcela nových C# aplikací či zlepšení Vašich stávajících" , Icon=Icons.Filled.Computer, Href="/services/customDevelopment" },
-        new ServiceModel { Caption="Podpora", Text="Důkladná péče a Váš software" , Icon=Icons.Filled.DataObject, Href="/services/support" },
-        new ServiceModel { Caption="Analýza projektu", Text="Vytvoření jasného a komplexního pohledu na projekt a jeho proveditelnost" , Icon=Icons.Filled.Analytics, Href="/services/analysis" },
+        new ServiceModel { Caption="Vývoj na zakázku", Text="TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT " , Icon=Icons.Filled.Computer, Href="/services/customDevelopment" },
+        new ServiceModel { Caption="Podpora", Text="TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT " , Icon=Icons.Filled.DataObject, Href="/services/support" },
+        new ServiceModel { Caption="Analýza projektu", Text="TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT " , Icon=Icons.Filled.Analytics, Href="/services/analysis" },
     };
 
     void NavigateMeToUrl(string url)

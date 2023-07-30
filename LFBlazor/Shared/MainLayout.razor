@@ -1,17 +1,18 @@
 ﻿@inherits LayoutComponentBase
 @inject NavigationManager NavigationManager
 <MudThemeProvider />
+<LFBlazor.Shared.Themes.LFTheme/>
 <MudDialogProvider />
 <MudSnackbarProvider />
 
 <MudLayout Class="page">
     <MudAppBar Elevation="0" Class="app-bar">
         <MudSpacer/>
-        <MudButton Variant="Variant.Text" Class="lf-button">Libor F.</MudButton>
+        <MudButton Variant="Variant.Text" Color="Color.Primary" Class="lf-button">Libor F.</MudButton>
         <MudSpacer />
         @foreach(var item in appMenuButtons)
         {
-            <MudButton Variant="Variant.Text" Class="lf-button" Href="@item.Href">@item.Caption</MudButton>
+            <MudButton Variant="Variant.Text" Color="Color.Primary" Class="lf-button" Href="@item.Href">@item.Caption</MudButton>
         }
         <MudSpacer />
     </MudAppBar>
@@ -21,10 +22,10 @@
         </MudContainer>
         <MudNavMenu Class="footer">
             <MudSpacer />
-            <MudIconButton Icon="@Icons.Custom.Brands.LinkedIn" Size="Size.Large" Class="footer-btn" />
-            <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Size="Size.Large" Class="footer-btn" />
-            <MudIconButton Icon="@Icons.Custom.Brands.Instagram" Size="Size.Large" Class="footer-btn" />
-            <MudIconButton Icon="@Icons.Custom.Brands.Discord" Size="Size.Large" Class="footer-btn" />
+            <MudIconButton Icon="@Icons.Custom.Brands.LinkedIn" Size="Size.Large" Color="Color.Primary" Class="footer-btn" />
+            <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Size="Size.Large" Color="Color.Primary" Class="footer-btn" />
+            <MudIconButton Icon="@Icons.Custom.Brands.Instagram" Size="Size.Large" Color="Color.Primary" Class="footer-btn" />
+            <MudIconButton Icon="@Icons.Custom.Brands.Discord" Size="Size.Large" Color="Color.Primary" Class="footer-btn" />
             <MudSpacer />
         </MudNavMenu>
     </MudMainContent>
@@ -48,7 +49,6 @@
     }
 
     .lf-button{
-        color: #b9ad00;
         font-size:18px;
         margin:10px;
         border-radius:15px;
@@ -71,7 +71,6 @@
 
     .footer-btn {
         margin: 10px;
-        color: #b9ad00;
         border-style: solid;
         border-width: 1px;
     }
@@ -79,7 +78,7 @@
         .footer-btn:hover {
             margin: 10px;
             transition: 0.3s;
-            background-color: #b9ad00;
+            background-color: #FBC02D;
             color: #191a19;
         }
 
