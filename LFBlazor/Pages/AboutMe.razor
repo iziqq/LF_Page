@@ -1,0 +1,70 @@
+﻿@page "/"
+
+<PageTitle>Libor Fridrich - About me</PageTitle>
+
+<MudGrid>
+    <MudItem xl="6">
+        <MudText Class="index-caption">Libor Fridrich</MudText>
+        <MudText Class="index-subcaption">Full stack C# developer</MudText>
+        <MudText Class="index-text">
+            Jsem C# developer s vášní pro tvorbu inovativních a efektivních softwarových řešení. Mám hluboké znalosti C# programování, .NET frameworku a ASP.NET pro vývoj webových aplikací. Své zkušenosti jsem získal předeším vytvářením rozmanitých projektů od backendových služeb a API až po moderní uživatelská rozhraní pomocí technologií jako Blazor a WPF. 
+        </MudText>
+        <MudButton Variant="Variant.Outlined" Class="index-btn">Služby</MudButton>
+    </MudItem>
+    <MudItem xl="6">
+        <MudImage Src="/Images/photo.png" Width="500" Height="500" Class="index-photo" />
+    </MudItem>
+</MudGrid>
+
+
+<style>
+
+    .index-caption {
+        color: #b9ad00;
+        font-size: 55px;
+        font-weight: 500;
+        margin-top: 15%;
+    }
+
+    .index-subcaption {
+        color: #fff783;
+        font-size: 40px;
+        font-weight: 300;
+    }
+
+    .index-text {
+        margin-top: 20px;
+        color: #a1a1a1;
+        font-size: 22px;
+        font-weight: 300;
+    }
+
+    .index-btn {
+        margin: 40px;
+        border-radius: 15px;
+        font-size: 22px;
+        background-color: transparent;
+        border-color: #b9ad00;
+        color: #b9ad00;
+        width: 250px;
+        margin-left: 30%;
+    }
+
+        .index-btn:hover {
+            background-color: #b9ad00;
+            color: #191a19;
+            transition: 0.3s;
+        }
+
+    .index-photo {
+        background-color: #b9ad00;
+        margin: 80px;
+        border-radius: 50%;
+        opacity: 0.65;
+    }
+
+        .index-photo:hover {
+            background-color: transparent;
+            transition: 0.3s;
+        }
+</style>

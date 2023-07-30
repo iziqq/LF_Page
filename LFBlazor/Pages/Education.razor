@@ -1,0 +1,99 @@
+﻿@page "/education"
+@inject NavigationManager NavigationManager
+
+<MudContainer Class="lf-container">
+    <MudGrid>
+        <MudItem xs="6">
+            <MudText Class="education-caption">Vzdělání</MudText>
+            @foreach (var item in educationModels.Where(x => x.IsEducation))
+            {
+                <MudCard Class="education-card cursor-pointer" @onclick="@(() => NavigateMeToUrl(item.Url))">
+                    <MudCardHeader>
+                        <MudText Typo="Typo.h5"><MudIcon Icon="@Icons.Filled.DateRange"></MudIcon> @item.DateRange</MudText>
+
+                    </MudCardHeader>
+                    <MudCardContent>
+                        <MudText Class="education-subcaption">@item.Caption</MudText>
+                        <MudText Class="education-text">@item.Text</MudText>
+                    </MudCardContent>
+                </MudCard>
+            }
+        </MudItem>
+
+        <MudItem xs="6">
+            <MudText Class="education-caption">Zkušenosti</MudText>
+            @foreach (var item in educationModels.Where(x => !x.IsEducation))
+            {
+                <MudCard Class="education-card cursor-pointer" @onclick="@(() => NavigateMeToUrl(item.Url))">
+                    <MudCardHeader>
+                        <MudText Typo="Typo.h5"><MudIcon Icon="@Icons.Filled.DateRange"></MudIcon> @item.DateRange</MudText>
+
+                    </MudCardHeader>
+                    <MudCardContent>
+                        <MudText Class="education-subcaption">@item.Caption</MudText>
+                        <MudText Class="education-text">@item.Text</MudText>
+                    </MudCardContent>
+                </MudCard>
+            }
+        </MudItem>
+    </MudGrid>
+</MudContainer>
+
+<style>
+    .education-card{
+        margin: 35px;
+        background-color: #282928;
+        color: #b9ad00;
+        border-radius: 15px;
+    }
+
+        .education-card:hover{
+            box-shadow: 0px 0px 12px 3px #b9ad00;
+            transition: 0.3s;
+        }
+
+    .education-text{
+        color: #a1a1a1;
+    }
+
+    .education-subcaption {
+        font-size: 23px;
+        margin-bottom: 10px;
+        color: white;
+    }
+
+    .education-caption{
+        margin-left: 35%;
+        font-size:35px;
+        color: #fff783;
+    }
+
+</style>
+
+@code {
+
+    public class EducationModel
+    {
+        public string DateRange { get; set; }
+        public string Url { get; set; }
+        public string Caption { get; set; }
+        public string Text { get; set; }
+        public string Logo { get; set; }
+        public bool IsEducation { get; set; }
+    }
+
+    List<EducationModel> educationModels = new List<EducationModel>
+    {
+        new EducationModel { DateRange="2009 - 2013", Url="https://new.spskladno.cz", Caption="SPŠ a VOŠ, Kladno", Text="Ukončené studium s maturitou, obor Elektronické počítačové systémy" , IsEducation = true, Logo="/Images/spsLogo.png" },
+        new EducationModel { DateRange="2013 - 2017", Url="https://www.pef.czu.cz/cs", Caption="ČZU", Text="Studium na fakultě PEF obor Informatika" , IsEducation = true, Logo="/Images/czuLogo.png" },
+        new EducationModel { DateRange="2017 - 2022", Url="https://www.memos.cz", Caption="Memos software s.r.o.", Text="První tři měsíce jsem pracoval jako tester. Následně jsem se stal vývojářem v C# a VBA", IsEducation = false, Logo="/Images/memosLogo.png" },
+        new EducationModel { DateRange="2022 - 2023", Url="https://www.seyfor.com", Caption="Seyfor", Text="C# desktop vývojář", IsEducation = false, Logo="/Images/seyforLogo.png" },
+        new EducationModel { DateRange="2023", Url="https://www.kone.cz", Caption="KONE", Text="Vývoj na zakázce pro firmu KONE", IsEducation = false,  Logo="/Images/koneLogo.png"},
+    };
+
+    void NavigateMeToUrl(string url)
+    {
+        NavigationManager.NavigateTo(url);
+    }
+
+}

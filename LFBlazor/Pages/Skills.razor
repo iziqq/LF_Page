@@ -1,0 +1,74 @@
+﻿@page "/skills"
+
+<MudContainer Class="lf-container">
+    <MudText Class="page-caption">Dovednosti</MudText>
+    <MudCard Class="skill-card cursor-pointer">
+        @foreach (var item in skillModels)
+        {
+            <MudCardHeader>
+                <MudText Class="skill-caption">@item.Caption</MudText>
+            </MudCardHeader>
+            <MudCardContent>
+                <MudProgressLinear Color="Color.Warning" Rounded="true" Size="Size.Medium" Value="@item.Progress" />
+            </MudCardContent>
+        }
+    </MudCard>
+</MudContainer>
+
+
+
+
+<style>
+    .skill-card {
+        margin: 35px;
+        background-color: #282928;
+        color: #b9ad00;
+        border-radius: 15px;
+        width:90%;
+    }
+
+    .skill-text {
+        color: #a1a1a1;
+    }
+
+    .skill-subcaption {
+        font-size: 20px;
+        margin-bottom: 10px;
+        color: #a1a1a1;
+    }
+
+    .skill-caption {
+        font-size: 23px;
+        margin-bottom: 10px;
+    }
+
+
+    .page-caption {
+        font-size: 35px;
+        color: #fff783;
+    }
+</style>
+
+@code {
+
+    public class SkillModel
+    {
+        public string Caption { get; set; }
+        public int Progress { get; set; }
+        public bool IsMouseOver { get; set; }
+    }
+
+    List<SkillModel> skillModels = new List<SkillModel>
+    {
+        new SkillModel { Caption="C# & .NET", IsMouseOver=false, Progress=80 },
+        new SkillModel { Caption="SQL", IsMouseOver=false, Progress=90 },
+        new SkillModel { Caption="VBA", IsMouseOver=false, Progress=75 },
+        new SkillModel { Caption="CSS", IsMouseOver=false, Progress=50 },
+        new SkillModel { Caption="HTML", IsMouseOver=false, Progress=65 },
+    };
+
+    void ChangeCard(SkillModel item, bool isMouseOver)
+    {
+        item.IsMouseOver = isMouseOver;
+    }
+}

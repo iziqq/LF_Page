@@ -1,0 +1,100 @@
+﻿@page "/services"
+@inject NavigationManager NavigationManager
+
+<MudContainer Class="lf-container">
+    <MudText Class="service-caption">Služby</MudText>
+    <MudGrid>
+        @foreach (var item in serviceModels)
+        {
+            <MudItem>
+                <MudCard Class="service-card">
+                    <MudCardHeader>
+                        <MudIcon Icon="@item.Icon" Size="Size.Large"/>
+                        <MudSpacer />
+                        <MudText Class="service-subcaption">@item.Caption </MudText>
+                        <MudSpacer />
+                    </MudCardHeader>
+                    <MudCardContent>
+                        <MudText Class="service-text">@item.Text</MudText>
+                    </MudCardContent>
+                    <MudCardActions Class="service-card-actions">
+                        <MudSpacer/>
+                        <MudIconButton Icon="@Icons.Filled.NavigateNext" Class="service-btn" Size="Size.Large" Href="@item.Href" />
+                        <MudSpacer />
+                    </MudCardActions>
+                </MudCard>
+            </MudItem>
+        
+        }
+    </MudGrid>
+</MudContainer>
+
+<style>
+    .service-card {
+        margin: 25px;
+        background-color: #282928;
+        border-radius: 15px;
+        color: #b9ad00;
+        width: 320px;
+        height: 400px;
+        position: relative;
+    }
+
+    .service-card-actions{
+        position:absolute;
+        bottom:0;
+        width:100%;
+    }
+
+    .service-text {
+        color: #a1a1a1;
+    }
+
+    .service-subcaption {
+        font-size: 25px;
+        margin-bottom: 10px;
+        color: #b9ad00;
+    }
+
+    .service-caption {
+        font-size: 35px;
+        color: #fff783;
+    }
+
+    .service-btn {
+        margin: 10px;
+        color: #b9ad00;
+        border-style: solid;
+        border-width: 1px;
+    }
+
+        .service-btn:hover {
+            margin: 10px;
+            transition: 0.3s;
+            background-color: #b9ad00;
+            color: #191a19;
+        }
+</style>
+
+@code {
+
+    public class ServiceModel
+    {
+        public string Caption { get; set; }
+        public string Text { get; set; }
+        public string Icon { get; set; }
+        public string Href { get; set; }
+    }
+
+    List<ServiceModel> serviceModels = new List<ServiceModel>
+    {
+        new ServiceModel { Caption="Vývoj na zakázku", Text="Vývoj zcela nových C# aplikací či zlepšení Vašich stávajících" , Icon=Icons.Filled.Computer, Href="/services/customDevelopment" },
+        new ServiceModel { Caption="Podpora", Text="Důkladná péče a Váš software" , Icon=Icons.Filled.DataObject, Href="/services/support" },
+        new ServiceModel { Caption="Analýza projektu", Text="Vytvoření jasného a komplexního pohledu na projekt a jeho proveditelnost" , Icon=Icons.Filled.Analytics, Href="/services/analysis" },
+    };
+
+    void NavigateMeToUrl(string url)
+    {
+        NavigationManager.NavigateTo(url);
+    }
+}

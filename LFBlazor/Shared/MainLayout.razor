@@ -1,0 +1,113 @@
+﻿@inherits LayoutComponentBase
+@inject NavigationManager NavigationManager
+<MudThemeProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
+
+<MudLayout Class="page">
+    <MudAppBar Elevation="0" Class="app-bar">
+        <MudSpacer/>
+        <MudButton Variant="Variant.Text" Class="lf-button">Libor F.</MudButton>
+        <MudSpacer />
+        @foreach(var item in appMenuButtons)
+        {
+            <MudButton Variant="Variant.Text" Class="lf-button" Href="@item.Href">@item.Caption</MudButton>
+        }
+        <MudSpacer />
+    </MudAppBar>
+    <MudMainContent Class="container">
+        <MudContainer MaxWidth="MaxWidth.Large" Class="my-16 pt-16">
+            @Body
+        </MudContainer>
+        <MudNavMenu Class="footer">
+            <MudSpacer />
+            <MudIconButton Icon="@Icons.Custom.Brands.LinkedIn" Size="Size.Large" Class="footer-btn" />
+            <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Size="Size.Large" Class="footer-btn" />
+            <MudIconButton Icon="@Icons.Custom.Brands.Instagram" Size="Size.Large" Class="footer-btn" />
+            <MudIconButton Icon="@Icons.Custom.Brands.Discord" Size="Size.Large" Class="footer-btn" />
+            <MudSpacer />
+        </MudNavMenu>
+    </MudMainContent>
+</MudLayout>
+
+<style>
+    .page{
+        background-color: #191a19;
+        position: fixed;
+        padding: 0;
+        margin: 0;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto !important;
+    }
+
+    .app-bar{
+        background-color: #191a19;
+    }
+
+    .lf-button{
+        color: #b9ad00;
+        font-size:18px;
+        margin:10px;
+        border-radius:15px;
+        min-width:150px;
+    } 
+    
+        .lf-button:hover{
+            font-size:20px;
+            transition: 0.35s;
+        }
+
+    .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        background-color: #191a19;
+    }
+
+    .footer-btn {
+        margin: 10px;
+        color: #b9ad00;
+        border-style: solid;
+        border-width: 1px;
+    }
+
+        .footer-btn:hover {
+            margin: 10px;
+            transition: 0.3s;
+            background-color: #b9ad00;
+            color: #191a19;
+        }
+
+
+    .lf-container {
+        width: 100%;
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
+
+@code {
+
+    public class AppMenuButtons
+    {
+        public string Caption { set; get; }
+        public string Href { set; get; }
+    }
+
+    List<AppMenuButtons> appMenuButtons = new List<AppMenuButtons>
+    {
+        new AppMenuButtons{ Caption="O mně", Href="/"},
+        new AppMenuButtons{ Caption="Vzdělání", Href="/education"},
+        new AppMenuButtons{ Caption="Dovednosti", Href="/skills"},
+        new AppMenuButtons{ Caption="Služby", Href="/services"},
+        new AppMenuButtons{ Caption="Kontakt", Href="/contact"}
+    };
+
+}

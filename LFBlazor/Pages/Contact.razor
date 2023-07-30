@@ -1,0 +1,77 @@
+﻿@page "/contact"
+
+<MudContainer Class="lf-container">
+    <MudCard Class="contact-card">
+        <MudCardHeader>
+            <MudText>Kontakt</MudText>
+        </MudCardHeader>
+        <MudCardContent>
+            <MudTextField @bind-Value="email" Label="Email" Variant="Variant.Text" Adornment="@Adornment.Start" AdornmentIcon="@Icons.Filled.Email" AdornmentColor="Color.Warning" Class="contact-textfield"></MudTextField>
+            <MudTextField @bind-Value="subject" Label="Předmět" Variant="Variant.Text" Adornment="@Adornment.Start" AdornmentIcon="@Icons.Filled.Subject" AdornmentColor="Color.Warning" Class="contact-textfield"></MudTextField>
+            <MudSelect T="MessageReason" Label="Důvod zprávy" AnchorOrigin="Origin.BottomCenter" Class="contact-textfield">
+                <MudSelectItem T="MessageReason" Value="@MessageReason.CustomDevelopment" />
+                <MudSelectItem T="MessageReason" Value="@MessageReason.Support" />
+                <MudSelectItem T="MessageReason" Value="@MessageReason.Analysis" />
+            </MudSelect>
+            <MudTextField T="string" Label="Vaše zpráva" Variant="Variant.Text" Text="@text" Lines="5" Adornment="@Adornment.Start" AdornmentIcon="@Icons.Filled.TextFields" AdornmentColor="Color.Warning" Class="contact-textfield" />
+        </MudCardContent>
+        <MudCardActions Class="contact-card-actions">
+            <MudButton Class="contact-btn" Size="Size.Large" FullWidth>Odeslat <MudIcon Icon="@Icons.Filled.NavigateNext"/></MudButton>
+        </MudCardActions>
+
+    </MudCard>
+</MudContainer>
+
+<style>
+    .contact-textfield{
+        color: #b9ad00;
+        margin:15px;
+    }
+
+    .contact-card {
+        margin: 25px;
+        background-color: #282928;
+        border-radius: 15px;
+        color: #b9ad00;
+        width: 320px;
+        height: 550px;
+        width: 650px;
+        position: relative;
+    }
+
+    .contact-card-actions {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
+
+    .contact-btn {
+        margin: 20px;
+        color: #b9ad00;
+        border-style: solid;
+        border-width: 1px;
+    }
+
+        .contact-btn:hover {
+            margin: 20px;
+            transition: 0.3s;
+            background-color: #b9ad00;
+            color: #191a19;
+        }
+</style>
+
+@code {
+    private enum MessageReason
+    {
+        CustomDevelopment,
+        Support,
+        Analysis
+    }
+
+    private string email = "";
+    private string subject = "";
+    private string text = "";
+
+
+
+}
